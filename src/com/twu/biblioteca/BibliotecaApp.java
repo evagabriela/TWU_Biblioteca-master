@@ -1,30 +1,24 @@
 package com.twu.biblioteca;
 
+import java.io.PrintStream;
 import java.util.ArrayList;
 
 public class BibliotecaApp {
 
     private ArrayList<String> bookList;
+    private PrintStream printStream;
 
-    public BibliotecaApp(ArrayList<String> bookList ){
+    public BibliotecaApp(ArrayList<String> bookList, PrintStream printStream){
         this.bookList = bookList;
+        this.printStream = printStream;
     }
 
     public ArrayList<String> getListOfBooks() {
         return bookList;
     }
 
-    public String start() {
+    public String welcomeMessage() {
         return "Welcome to Biblioteca";
-    }
-
-    public static void main(String[] args) {
-        BibliotecaApp ba = new BibliotecaApp( new ArrayList<String>() );
-        System.out.println(ba.start());
-    }
-
-    public String showMainMenu() {
-        return "Main Menu: 1. List Books";
     }
 
     public ArrayList<String> chooseMenuOption(String s) {
@@ -33,5 +27,11 @@ public class BibliotecaApp {
             return getListOfBooks();
         else
             throw new NoSuchMethodError();
+    }
+
+    public void printBooks() {
+        for (String book : bookList) {
+            printStream.println(book);
+        }
     }
 }

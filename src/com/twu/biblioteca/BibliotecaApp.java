@@ -13,20 +13,8 @@ public class BibliotecaApp {
         this.printStream = printStream;
     }
 
-    public ArrayList<String> getListOfBooks() {
-        return bookList;
-    }
-
     public String welcomeMessage() {
         return "Welcome to Biblioteca";
-    }
-
-    public ArrayList<String> chooseMenuOption(String s) {
-        int optionNumber = Integer.parseInt(s);
-        if (optionNumber == 1)
-            return getListOfBooks();
-        else
-            throw new NoSuchMethodError();
     }
 
     public void printBooks() {
